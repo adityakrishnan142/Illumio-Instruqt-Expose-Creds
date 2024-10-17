@@ -11,7 +11,7 @@
 
 <body>
     <div class="accountList">
-        {{ if ne (getenv "AZSUBSCRIPTION_NEW_USER_PRINCIPAL_NAME") "" }}
+        {{ if ne (getenv "AZSUBSCRIPTION_NEW_USER_EMAIL") "" }}
         <div class="account azureSubscription">
             <div class="card">
                 <div class="header">
@@ -19,19 +19,21 @@
                         <img alt="icon" src="/assets/azure.svg">
                     </div>
                     <div class="title">
-                        <h2>{{ getenv "AZSUBSCRIPTION_NEW_USER_PRINCIPAL_NAME" }}</h2>
-                        <p>Azure User</p>
+                        <h2>AZSubscription</h2> <!-- Changed this to "AZSubscription" -->
+                        <p>Azure Subscription</p>
                     </div>
                 </div>
                 <div class="properties">
                     <div class="key">Login URL:</div>
                     <div class="value">
-                        <a href="{{ getenv "AZSUBSCRIPTION_LOGIN_URL" }}" target="_blank">
-                            {{ getenv "AZSUBSCRIPTION_LOGIN_URL" }}
-                        </a>
+                        <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
                     </div>
+                    <div class="key">Subscription ID:</div>
+                    <div class="value" data-copyable>{{ getenv "AZSUBSCRIPTION_NEW_SUBSCRIPTION_ID" }}</div>
+                    <div class="key">Tenant ID:</div>
+                    <div class="value" data-copyable>{{ getenv "AZSUBSCRIPTION_TENANT_ID" }}</div>
                     <div class="key">Username:</div>
-                    <div class="value" data-copyable>{{ getenv "AZSUBSCRIPTION_NEW_USER_PRINCIPAL_NAME" }}</div>
+                    <div class="value" data-copyable>{{ getenv "AZSUBSCRIPTION_NEW_USER_EMAIL" }}</div>
                     <div class="key">Password:</div>
                     <div class="value" data-copyable>{{ getenv "AZSUBSCRIPTION_NEW_USER_PASSWORD" }}</div>
                 </div>
